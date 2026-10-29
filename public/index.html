@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple task management application">
+  <title>TaskFlow | Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="TaskFlow home">
+      <span class="brand-icon">✓</span>
+      TaskFlow
+    </a>
+    <span class="topbar-label">My workspace</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+      <h1>Get things done.</h1>
+      <p>Organize your day, one task at a time.</p>
+    </section>
+
+    <section class="summary" aria-label="Task summary">
+      <article class="summary-card">
+        <span>Total tasks</span>
+        <strong id="total-count">0</strong>
+      </article>
+      <article class="summary-card">
+        <span>Pending</span>
+        <strong id="pending-count">0</strong>
+      </article>
+      <article class="summary-card">
+        <span>Completed</span>
+        <strong id="completed-count">0</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2 id="form-heading">Add a new task</h2>
+          <p>What would you like to accomplish?</p>
+        </div>
+      </div>
+
+      <form id="task-form">
+        <label for="task-title">Task title</label>
+        <input
+          id="task-title"
+          name="title"
+          type="text"
+          maxlength="120"
+          placeholder="e.g. Finish the project presentation"
+          required
+        >
+
+        <label for="task-description">Description (optional)</label>
+        <textarea
+          id="task-description"
+          name="description"
+          rows="3"
+          maxlength="500"
+          placeholder="Add a few details..."
+        ></textarea>
+
+        <div class="form-actions">
+          <button class="button primary" id="submit-button" type="submit">
+            + Add task
+          </button>
+          <button class="button secondary hidden" id="cancel-edit" type="button">
+            Cancel edit
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="tasks-section">
+      <div class="tasks-heading">
+        <div>
+          <h2>Your tasks</h2>
+          <p id="task-subtitle">Everything you need to get done.</p>
+        </div>
+
+        <label class="filter-label" for="task-filter">
+          <span>Show</span>
+          <select id="task-filter">
+            <option value="all">All tasks</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="task-list" class="task-list" aria-live="polite"></div>
+    </section>
+
+    <footer class="footer">
+      <p>Built with HTML, CSS and JavaScript.</p>
+    </footer>
+  </main>
+</body>
+</html>
